@@ -5,61 +5,133 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <meta name="description" content="Discover personalised travel recommendations tailored to your interests, budget, and travel style. Find your next destination and plan your perfect trip." />
   <meta name="author" content="Marcin Krupinski" />
-   <!-- Stylesheet -->
+  <!-- Stylesheet -->
   <link rel="stylesheet" href="style.css" />
-
   <!-- JavaScript (deferred so it runs after the DOM is ready) -->
   <script src="script.js" defer></script>
   <title>Travel Recommendation</title>
 </head>
-    <body>
-        
-<nav class="navbar" role="navigation" aria-label="Main navigation">
-  <div class="navbar__inner">
- 
-    <!-- Brand -->
-    <a href="/" class="navbar__brand" aria-label="TravelBloom home">
-      <div class="navbar__brand-icon" aria-hidden="true">
-        <!-- Compass-style icon -->
-        <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-          <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8zm-1-13l-3 7 7-3 3-7-7 3z"/>
-        </svg>
-      </div>
-      <span class="navbar__brand-name">TravelBloom</span>
-    </a>
- 
-    <!-- Nav links -->
-    <ul class="navbar__links" id="nav-links">
-      <li><a href="/" class="active">Home</a></li>
-      <li><a href="/about">About Us</a></li>
-      <li><a href="/contact">Contact Us</a></li>
-    </ul>
- 
-    <!-- Search -->
-    <div class="navbar__search" id="nav-search">
-      <div class="search-input-wrap">
-        <svg viewBox="0 0 24 24" fill="none" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
-          <circle cx="11" cy="11" r="7"/><line x1="16.5" y1="16.5" x2="22" y2="22"/>
-        </svg>
-        <input
-          class="search-input"
-          id="search-field"
-          type="search"
-          placeholder="Enter a destination or keyword"
-          aria-label="Search destinations"
-        />
-      </div>
-      <button class="btn-search" onclick="handleSearch()">Search</button>
-      <button class="btn-clear" onclick="clearSearch()">Clear</button>
-    </div>
- 
-    <!-- Hamburger (mobile) -->
-    <button class="navbar__hamburger" id="hamburger" aria-label="Toggle menu" aria-expanded="false">
-      <span></span><span></span><span></span>
-    </button>
- 
-  </div>
-</nav>
-    </body>
-</html>
+<body>
 
+  <!-- ── Navbar ──────────────────────────────────────────────── -->
+  <nav class="navbar" role="navigation" aria-label="Main navigation">
+    <div class="navbar__inner">
+
+      <!-- Brand -->
+      <a href="index.html" class="navbar__brand" aria-label="TravelBloom home">
+        <div class="navbar__brand-icon" aria-hidden="true">
+          <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+            <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8zm-1-13l-3 7 7-3 3-7-7 3z"/>
+          </svg>
+        </div>
+        <span class="navbar__brand-name">TravelBloom</span>
+      </a>
+
+      <!-- Nav links -->
+      <ul class="navbar__links" id="nav-links">
+        <li><a href="index.html" class="active">Home</a></li>
+        <li><a href="about.html">About Us</a></li>
+        <li><a href="contact.html">Contact Us</a></li>
+      </ul>
+
+      <!-- Search -->
+      <div class="navbar__search" id="nav-search">
+        <div class="search-input-wrap">
+          <svg viewBox="0 0 24 24" fill="none" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+            <circle cx="11" cy="11" r="7"/><line x1="16.5" y1="16.5" x2="22" y2="22"/>
+          </svg>
+          <input
+            class="search-input"
+            id="search-field"
+            type="search"
+            placeholder="Enter a destination or keyword"
+            aria-label="Search destinations"
+          />
+        </div>
+        <button class="btn-search" id="btn-search">Search</button>
+        <button class="btn-clear" id="btn-reset">Clear</button>
+      </div>
+
+      <!-- Hamburger (mobile) -->
+      <button class="navbar__hamburger" id="hamburger" aria-label="Toggle menu" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+
+    </div>
+  </nav>
+
+  <!-- ── Hero ────────────────────────────────────────────────── -->
+  <section class="hero" aria-label="Hero banner">
+
+    <!-- Left: vertical social icons -->
+    <aside class="hero__socials" aria-label="Social media links">
+      <a href="https://twitter.com" target="_blank" rel="noopener" aria-label="Twitter">
+        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M22.46 6c-.77.35-1.6.58-2.46.69a4.28 4.28 0 0 0 1.88-2.37 8.56 8.56 0 0 1-2.72 1.04 4.27 4.27 0 0 0-7.28 3.9A12.12 12.12 0 0 1 3.1 4.78a4.27 4.27 0 0 0 1.32 5.7 4.24 4.24 0 0 1-1.93-.53v.05a4.27 4.27 0 0 0 3.42 4.18 4.3 4.3 0 0 1-1.93.07 4.27 4.27 0 0 0 3.99 2.97A8.57 8.57 0 0 1 2 19.54a12.1 12.1 0 0 0 6.56 1.92c7.88 0 12.2-6.53 12.2-12.2l-.01-.56A8.72 8.72 0 0 0 22.46 6z"/></svg>
+      </a>
+      <a href="https://facebook.com" target="_blank" rel="noopener" aria-label="Facebook">
+        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg>
+      </a>
+      <a href="https://instagram.com" target="_blank" rel="noopener" aria-label="Instagram">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/></svg>
+      </a>
+      <a href="https://youtube.com" target="_blank" rel="noopener" aria-label="YouTube">
+        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M21.8 8s-.2-1.4-.8-2c-.8-.8-1.6-.8-2-.9C16.4 5 12 5 12 5s-4.4 0-7 .1c-.4.1-1.2.1-2 .9-.6.6-.8 2-.8 2S2 9.6 2 11.2v1.5c0 1.6.2 3.2.2 3.2s.2 1.4.8 2c.8.8 1.8.8 2.3.9C6.8 19 12 19 12 19s4.4 0 7-.1c.4-.1 1.2-.1 2-.9.6-.6.8-2 .8-2s.2-1.6.2-3.2v-1.5C22 9.6 21.8 8 21.8 8zM9.7 14.5V9l5.4 2.8-5.4 2.7z"/></svg>
+      </a>
+    </aside>
+
+    <!-- Hero background image -->
+    <div class="hero__bg" aria-hidden="true"></div>
+
+    <!-- Hero content -->
+    <div class="hero__content">
+      <h1 class="hero__title">Explore Dream<br />Destination</h1>
+      <p class="hero__desc">
+        The Travel Recommendation App helps users explore popular travel destinations
+        through an interactive and user-friendly interface. It allows users to search for
+        beaches, temples, countries, or specific country names to view related cities along
+        with images and descriptions. The app dynamically fetches data from a structured
+        JSON file to display relevant results. It provides a simple and efficient way to
+        discover and plan travel destinations.
+      </p>
+      <a href="#recommendations" class="btn-booknow">Book Now</a>
+    </div>
+
+  </section>
+
+  <!-- ── Results placeholder ─────────────────────────────────── -->
+  <section id="recommendations" class="results-section">
+    <div id="results-container"></div>
+  </section>
+
+<script>
+
+
+function fetch_data()
+  {
+
+fetch('travel_recommendation_api.json')
+  .then(response => {
+    if (!response.ok) {
+      throw new Error('Failed to load: ' + response.status);
+    }
+    return response.json();
+  })
+  .then(data => {
+    console.log('✅ JSON loaded successfully:', data);
+  })
+  .catch(error => {
+    console.error('❌ Error loading JSON:', error);
+  });
+
+
+
+  }
+
+
+
+fetch_data();
+</script>
+
+
+</body>
+</html>
