@@ -34,33 +34,43 @@
     if (e.key === 'Enter') handleSearch();
   });
   
-  function handleSearch() {
-    const query = document.getElementById('search-field').value.trim().toLowerCase();
-    if (!query) return;
-    if (!travelData) { console.warn('Data not loaded yet'); return; }
-  
-    let results = [];
-  
-    if (query.includes('beach')) {
-      results = travelData.beaches;
-    } else if (query.includes('temple')) {
-      results = travelData.temples;
-    } else {
-      travelData.countries.forEach(country => {
-        if (country.name.toLowerCase().includes(query)) {
-          results = results.concat(country.cities);
-        } else {
-          country.cities.forEach(city => {
-            if (city.name.toLowerCase().includes(query)) results.push(city);
-          });
-        }
-      });
-    }
-  
-    // Hide hero content, show results
-    document.querySelector('.hero__content').style.display = 'none';
-    displayResults(results, query);
+function handleSearch() {
+  const query = document.getElementById('search-field').value.trim().toLowerCase();
+  if (!query) return;
+  if (!travelData) { console.warn('Data not loaded yet'); return; }
+
+  let results = [];
+
+  if (query.includes('beach')) {
+    results = travelData.beaches;
+
+  } else if (query.includes('temple')) {
+    results = travelData.temples;
+
+  } else if (query.includes('country')) {
+    // Show all cities from all countries
+    travelData.countries.forEach(country => {
+      results = results.concat(country.cities);
+    });
+
+  } else {
+    // Search by specific country name or city name
+    travelData.countries.forEach(country => {
+      if (country.name.toLowerCase().includes(query)) {
+        results = results.concat(country.cities);
+      } else {
+        country.cities.forEach(city => {
+          if (city.name.toLowerCase().includes(query)) results.push(city);
+        });
+      }
+    });
   }
+
+  console.log(`🔍 Search: "${query}" → ${results.length} result(s)`, results);
+
+  document.querySelector('.hero__content').style.display = 'none';
+  displayResults(results, query);
+}
   
   
   function clearSearch() {
